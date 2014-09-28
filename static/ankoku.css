@@ -1,0 +1,52 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+body {
+	background-color: #111111;
+}
+.title {
+	margin: 0px auto;
+	text-align: center;
+	height: 150px;
+	font-family: sans-serif;
+	font-size: 28px;
+	padding-bottom: 2px;
+	color: #888888;
+}
+.title img {
+	margin-top: 7px;
+}
+.post-form {
+	margin: 5px auto 0px auto;
+	width: 400px;
+	font-family: sans-serif;
+}
+.form-input {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #333333;
+	height: 22px;
+	color: #888888;
+	background-color: #141414;
+}
+.post-form tr td textarea {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #333333;
+	height: 80px;
+	color: #888888;
+	background-color: #141414;
+}
+.post-form tr td input[type="file"] {
+	color: #888888;
+}
+.post-form tr td:nth-child(1) {
+	background-color: #333333;
+	border: 1px solid #000000;
+	text-align: right;
+	padding-right: 5px;
+	width: 85px;
+	height: 16px;
+	color: #888888;
+}
