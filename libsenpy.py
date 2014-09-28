@@ -53,23 +53,23 @@ def post(conn, id, parent, timestamp, filename, name, trip, cap):
 def generate_index():
 	template_args = render_args.copy()
 	template_args["name"] = "%s - %s" % (conf.title, conf.subtitle)
-	template_args["form"] = False
+	template_args["form"] = True
 	return flask.render_template("index.html", **template_args)
 
 def generate_board(board_name):
 	template_args = render_args.copy()
 	template_args["name"] = "/%s/ - %s" % (board_name, conf.title)
-	return flask.render_template("index.html", **template_args)
 	template_args["form"] = True
+	return flask.render_template("index.html", **template_args)
 
 def generate_catalog(board_name):
 	template_args = render_args.copy()
 	template_args["name"] = "/%s/ catalog - %s" % (board_name, conf.title)
-	return flask.render_template("index.html", **template_args)
 	template_args["form"] = False
+	return flask.render_template("index.html", **template_args)
 
 def generate_thread(board_name, thread_id):
 	template_args = render_args.copy()
 	template_args["name"] = "%s - %s" % (board_name, conf.title)
-	return flask.render_template("index.html", **template_args)
 	template_args["form"] = True
+	return flask.render_template("index.html", **template_args)

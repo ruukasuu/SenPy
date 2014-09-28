@@ -9,6 +9,7 @@
 			<img src="/static/banner/1.jpg" /><br />
 			{{name}}
 		</div>
+		{% if form %}
 		<table class="post-form">
 			<tr>
 				<td>Name</td>
@@ -35,5 +36,6 @@
 				<td><input type="submit" class="form-input" value="Post" /></td>
 			</tr>
 		</table>
+		{% endif %}
 	</body>
 </html>
