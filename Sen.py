@@ -6,13 +6,13 @@ import libsenpy as lib
 conf = lib.conf
 
 connection_string = "host='%s' dbname='%s' user='%s' password='%s'" % (conf.host, conf.db, conf.username, conf.password)
-#try:
-database_connection = psycopg2.connect(connection_string)
-cursor = database_connection.cursor()
-print("Connected to database")
-#except:
-#	print("Error connecting to database")
-#	sys.exit()
+try:
+	database_connection = psycopg2.connect(connection_string)
+	cursor = database_connection.cursor()
+	print("Connected to database")
+except:
+	print("Error connecting to database")
+	sys.exit()
 
 app = Flask(__name__)
 
