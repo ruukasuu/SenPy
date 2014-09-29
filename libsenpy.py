@@ -52,7 +52,10 @@ def post(conn, id, parent, timestamp, filename, name, trip, cap):
 
 def generate_index():
 	template_args = render_args.copy()
-	template_args["name"] = "%s - %s" % (conf.title, conf.subtitle)
+	if conf.subtitle:
+		template_args["name"] = "%s - %s" % (conf.title, conf.subtitle)
+	else:
+		template_args["name"] = "%s" % (conf.title)
 	template_args["form"] = True
 	return flask.render_template("index.html", **template_args)
 
