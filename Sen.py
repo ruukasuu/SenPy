@@ -35,7 +35,7 @@ def board(board_name):
 def catalog(board_name):
 	return lib.generate_catalog(board_name.lower())
 
-@app.route("/<board_name>/<int:thread_id>/")
+@app.route("/<board_name>/<thread_id>/")
 def thread(board_name, thread_id):
 	return lib.generate_thread(board_name.lower(), thread_id)
 
