@@ -8,7 +8,6 @@ conf = lib.conf
 connection_string = "host='%s' dbname='%s' user='%s' password='%s'" % (conf.host, conf.db, conf.username, conf.password)
 try:
 	database_connection = psycopg2.connect(connection_string)
-	cursor = database_connection.cursor()
 	print("Connected to database")
 except:
 	print("Error connecting to database")
@@ -22,6 +21,11 @@ def main():
 @app.route("/")
 def index():
 	return lib.generate_index()
+
+@app.route("/ayy")
+def ayy():
+	lib.post(database_connection, "gentoo", 7, 1253, "jpg", "Ayy", "!lmao", 0)
+	return "ayy"
 
 @app.route("/<board_name>/")
 def board(board_name):

@@ -16,6 +16,9 @@ def randbytes(count, b64):
 		out = base64.b64encode(out)[:count]
 	return out
 
+def generate_id():
+	return randbytes(32, True)
+
 def inet_aton(a):
 	a_bytes = a.split(".")
 	n_bytes = b""
@@ -44,10 +47,9 @@ def secure_trip(seed, ip):
 	formatted_output = "!!" + output_trip_trimmed.decode("utf-8")
 	return formatted_output
 
-def post(conn, id, parent, timestamp, filename, name, trip, cap):
+def post(conn, board, parent, timestamp, extension, name, trip, cap):
 	cursor = conn.cursor()
-	command = "INSERT INTO posts VALUES(%i, %i, %i, '%s', '%s', '%s', %i);" % (id, parent, timestamp, filename, name, trip, cap)
-	cursor.execute(command)
+	cursor.execute("""INSERT INTO posts VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""", (generate_id().decode("ascii"), board, parent, timestamp, extension, name, trip, cap))
 	conn.commit()
 
 def generate_index():
