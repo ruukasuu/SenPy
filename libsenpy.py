@@ -49,7 +49,7 @@ def secure_trip(seed, ip):
 
 def post(conn, board, parent, timestamp, extension, name, trip, cap):
 	cursor = conn.cursor()
-	cursor.execute("""INSERT INTO posts VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""", (generate_id().decode("ascii"), board, parent, timestamp, extension, name, trip, cap))
+	cursor.execute("""INSERT INTO posts VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""", (generate_id().decode("ascii").replace("/", "-"), board, parent, timestamp, extension, name, trip, cap))
 	conn.commit()
 
 def generate_index():
