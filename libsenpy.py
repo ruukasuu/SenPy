@@ -52,6 +52,10 @@ def post(conn, id, parent, timestamp, filename, name, trip, cap):
 
 def generate_index():
 	template_args = render_args.copy()
+	try:
+		conf.subtitle
+	except:
+		conf.subtitle = False
 	if conf.subtitle:
 		template_args["name"] = "%s - %s" % (conf.title, conf.subtitle)
 	else:
