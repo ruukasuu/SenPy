@@ -23,13 +23,16 @@ def index():
 	return lib.generate_index()
 
 @app.route("/ayy")
-def ayy():
-	lib.post(database_connection, "gentoo", 7, 1253, "jpg", "Ayy", "!lmao", 0)
-	return "ayy"
+def test():
+	return render_template("message.html", style="/static/akari.css", name="ayy")
 
 @app.route("/<board_name>/")
 def board(board_name):
 	return lib.generate_board(board_name.lower())
+
+@app.route("/<board_name>/submit/", methods=["POST"])
+def board_submit(board_name):
+	return lib.submit_post(database_connection, board_name, "", request.form, request.files["file"])
 
 @app.route("/<board_name>/catalog/")
 def catalog(board_name):
@@ -38,6 +41,10 @@ def catalog(board_name):
 @app.route("/<board_name>/<thread_id>/")
 def thread(board_name, thread_id):
 	return lib.generate_thread(board_name.lower(), thread_id)
+
+@app.route("/<board_name>/<thread_id>/submit/", methods=["POST"])
+def thread_submit(board_name, thread_id):
+	return lib.submit_post(database_connection, board_name, thread_id, request.form, request.files["file"])
 
 if __name__ == "__main__":
 	main()

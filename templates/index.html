@@ -10,32 +10,34 @@
 			{{name}}
 		</div>
 		{% if form %}
-		<table class="post-form">
-			<tr>
-				<td>Name</td>
-				<td><input type="text" class="form-input" /></td>
-			</tr>
-			<tr>
-				<td>Subject</td>
-				<td><input type="text" class="form-input" /></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="text" class="form-input" /></td>
-			</tr>
-			<tr>
-				<td>Comment</td>
-				<td><textarea></textarea></td>
-			</tr>
-			<tr>
-				<td>File</td>
-				<td><input type="file" /></td>
-			</tr>
-			<tr>
-				<td>Submit</td>
-				<td><input type="submit" class="form-input" value="Post" /></td>
-			</tr>
-		</table>
+		<form method="post" action="submit/" enctype="multipart/form-data">
+			<table class="post-form">
+				<tr>
+					<td>Name</td>
+					<td><input name="name" type="text" class="form-input" /></td>
+				</tr>
+				<tr>
+					<td>Subject</td>
+					<td><input name="subject" type="text" class="form-input" /></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input name="email" type="text" class="form-input" /></td>
+				</tr>
+				<tr>
+					<td>Comment</td>
+					<td><textarea name="comment"></textarea></td>
+				</tr>
+				<tr>
+					<td>File</td>
+					<td><input name="file" type="file" /></td>
+				</tr>
+				<tr>
+					<td>Submit</td>
+					<td><input type="submit" class="form-input" value="Post" /></td>
+				</tr>
+			</table>
+		</form>
 		{% endif %}
 	</body>
 </html>
